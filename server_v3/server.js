@@ -18,7 +18,9 @@ const cors_options = {
         'https://anime-character-guessr.netlify.app',
         /^http:\/\/192\.168\.\d+\.\d+:\d+$/,  // 支持局域网IP
         /^http:\/\/172\.\d+\.\d+\.\d+:\d+$/,  // 支持局域网IP
-        /^http:\/\/10\.\d+\.\d+\.\d+:\d+$/    // 支持局域网IP
+        /^http:\/\/10\.\d+\.\d+\.\d+:\d+$/ ,   // 支持局域网IP
+        '*'
+
       ],
       methods: ['GET', 'POST'],
       credentials: true
