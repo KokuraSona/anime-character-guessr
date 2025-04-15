@@ -14,6 +14,7 @@
 
 3.点击start-lan.bat，启动相关服务（如果连接失败可尝试setup-firewall.bat关闭防火墙）
 ![image](https://github.com/user-attachments/assets/441968cd-34a5-4a3e-94a3-68eb1b7501a8)
+
 如图 Network即为局域网联机地址，ctrl＋鼠标左键打开即可正常游玩
 
 ## 局限性
