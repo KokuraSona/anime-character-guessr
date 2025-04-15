@@ -1,9 +1,34 @@
 @echo off
+setlocal enabledelayedexpansion
 chcp 65001 >nul
+
+
+REM ███████████████ 主程序开始 ███████████████
+title 动漫猜谜游戏初始化工具
+color 0B
 echo 设置并启动动漫角色猜谜游戏...
 
-REM 设置颜色
-color 0B
+
+REM █████ 简单版Node.js检测 █████
+echo.
+where node >nul 2>&1
+if %errorlevel% equ 0 (
+   echo [状态] Node.js 已安装
+   
+) else (
+   echo [警告] 未检测到Node.js环境！
+   echo 提示：后续npm命令可能无法执行
+)
+
+pause
+
+
+echo.
+echo 正在继续执行初始化流程...
+echo -----------------------------------
+timeout /t 2 >nul
+
+
 
 echo 正在检查并关闭已占用的端口...
 REM 关闭占用3000端口的进程(游戏服务器)
@@ -71,7 +96,7 @@ if not exist "data_server\.env" (
 
 
 
-EM 直接修改App.jsx文件解除路由注释
+REM 直接修改App.jsx文件解除路由注释
 echo 正在修复路由配置...
 echo import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; > client_v3\src\App.jsx.new
 echo import Home from './pages/Home'; >> client_v3\src\App.jsx.new
@@ -104,15 +129,7 @@ echo.
 echo ==================================================
 echo 设置完成! 
 echo.
-echo 现在您可以运行以下命令来启动应用:
-echo - 本地模式: fix-routes-and-start.bat
-echo   (适用于单机游戏)
-echo.
-echo - 局域网模式: fix-routes-and-start-lan.bat
-echo   (使其他用户可以通过局域网连接，修复了CORS问题)
-echo ==================================================
-echo.
-echo 注意: 如果在局域网模式下遇到跨域(CORS)问题，请使用新的fix-routes-and-start-lan.bat脚本
-echo 它会自动解决CORS问题并正确配置环境变量
-
+echo 提示：本初始化脚本只需执行一次！
+echo 下次启动请直接运行以下脚本：start-lan.bat
+echo 停止游戏只需点击：stop-app.bat
 pause 
